@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">T o p    N e w s</h1>
+      <p class="lead mb-0 text-white font-weight-bold">Find the most interesting,
+        important and relevant news from around the globe on Technology, Science, Health, Culture and more.</p>
+    </div>
+  </div>
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <h3 class="pb-4 mb-4 font-italic border-bottom">
+        The latest news
+      </h3>
+
+<!--List of all news      -->
+
+      <nav class="blog-pagination">
+        <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+        <a class="btn btn-outline-primary" href="#">Older</a>
+      </nav>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
