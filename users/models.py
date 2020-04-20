@@ -8,6 +8,7 @@ class MyUser(AbstractUser):
     """Custom user model"""
     username = None
     email = models.EmailField('email address', unique=True)
+    email_verified = models.BooleanField(default=False)
     birthday = models.DateField(blank=True, null=True)
 
     USERNAME_FIELD = 'email'
