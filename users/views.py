@@ -41,7 +41,7 @@ class UserRegistration(View):
             return HttpResponse('Confirmation link was sent on your email.\
                                 Please confirm your email address to complete registration')
         else:
-            return HttpResponse('Invalid data')
+            return render(request, 'users/register.html', {'form': form})
 
 
 class EmailVerification(View):
