@@ -6,10 +6,33 @@
         <h2 class="blog-post-title">{{ post.title }}</h2>
         <p class="blog-post-meta">{{ post.created }} by <a href="#">{{ post.author }}</a></p>
          {% if post.author == user %}
-            <a class="btn btn-dark btn-sm" href="{% url 'post_update' post.pk %}">Edit</a>
-            <a class="btn btn-danger btn-sm" href="{% url 'post_delete' post.pk %}">Delete</a>
+            <a class="btn btn-dark btn-sm" href="{% url 'post_update' post.slug %}">Edit</a>
+            <a class="btn btn-danger btn-sm" href="{% url 'post_delete' post.slug %}">Delete</a>
          {% endif %}
          <hr>
         <p>{{ post.body|safe }}</p>
       </div>
+<!--                            Comments-->
+    <h4>{{ comments.count }} comments</h4>
+    <div class="col-md-8 card mb-4  mt-3">
+        <div class="card-body">
+    {% for comment in comments %}
+        <span>
+            <i>{{ comment.author }}</i> |
+            <small>{{ comment.created }}</small>
+        </span>
+        <span>{{ comment.body|safe }}</span>
+        <hr>
+    {% endfor %}
+        </div>
+    </div>
+    <h4>Leave a comment</h4>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ comment_form.media }}
+        {{ comment_form|crispy }}
+        <button class="btn btn-primary" type="submit">Add comment</button>
+    </form>
+<!--            End Comments-->
+
 {% endblock %}
